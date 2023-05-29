@@ -1,0 +1,580 @@
+@mixin laptop {
+    @media  screen and ( max-width: 992px )  {
+    @content;
+}
+}
+
+
+
+@mixin desktop {
+    @media  screen and ( max-width: 1200px ){
+    @content;
+}
+
+}
+$golden:#ffc609;
+
+%align-center{
+    display:flex;
+    align-items: center;
+}
+
+*{
+padding:0px;
+margin:0px;
+font-family: 'Montserrat', sans-serif;
+
+}
+main{
+  background-color: #000;
+}
+
+
+//slika
+#background_img {
+    height: 1050px;
+    width: 100%;
+    background-image: url('../assets/img/background_img.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    @extend %align-center;
+    justify-content: flex-start;
+  
+    .left-article {
+      left: 0px;
+      position: absolute;
+      width: 50%;
+      max-width: calc(100% - 50px);
+      height: 100%;
+      background-color: rgba(7, 7, 7, 0.692);
+      text-align: right;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: flex-end;
+      flex-direction: column;
+      color: #fff;
+      letter-spacing: 10px;
+  
+      h2,
+      span {
+        color: $golden;
+      }
+    }
+
+  
+    .right-article {
+      right: 0px;
+      position: absolute;
+      width: 50%;
+      max-width: calc(100% - 50px);
+      height: 100%;
+      background-color: #ffffffa6;
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: flex-start;
+      flex-direction: column;
+      color: #000;
+      letter-spacing: 10px;
+      overflow-wrap: anywhere;
+  
+      
+    }
+    h2,
+      p {
+        font-size: 2em;
+        margin: 5px;
+        
+      }
+      i{ font-family: 'Great Vibes', cursive}
+}
+
+  
+    
+header {
+        height: auto;
+        width: 100%;
+        justify-content: center; 
+        font-size: 1.5em;
+        position: fixed;
+        z-index: 100;
+        background-color:#000; 
+        @extend %align-center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding: 0 10px;
+        color:#fff;
+
+
+      .logo {
+        width: 33%;
+        display: flex;
+        justify-content: center;
+      
+        img {
+          width: fit-content;
+          height: 70px;
+        }
+      }
+
+li{
+    display:inline-block;
+    box-sizing: border-box;
+   transition: 0.5s;
+}
+
+
+.info_block{
+        
+        background-color: #ffffff00;
+        text-align: left;
+        width:32%;
+    p {
+        box-sizing: border-box;
+        width: auto; 
+
+}
+}
+nav{
+        width:33%;
+}
+nav ul{
+    
+    @extend %align-center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    a{
+
+        color:#fff;
+        text-align:right;
+         
+     }
+}
+li:hover{
+
+    color:$golden;
+    border-bottom: 1px solid $golden;
+}
+}
+
+#about_me{
+@extend %align-center;
+justify-content: space-around;
+height:500px;
+flex-wrap: wrap;
+background-color: #000;
+
+p{
+    font-size: 2em;
+}
+
+ .text_blocks{
+    width:50%;
+    height:100%;
+    background-color: rgb(0, 0, 0);
+    color:#fff;
+    @extend %align-center;
+    justify-content: space-around;
+    text-align: center;
+   .slika{
+    height:100%;
+    width:fit-content;
+    position:relative;
+
+    .ikone {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        @extend %align-center;
+        justify-content: space-evenly;
+        font-weight: bold;
+        font-size: 25pt;
+          i{
+            transition: 0.5s;
+            cursor: pointer;
+          &:hover{
+            transform:scale(1.1);
+
+          }
+        }
+      }
+   }
+   
+    img{
+        width:100%;
+        height:100%;
+         object-fit: contain;
+         
+    }
+    p{
+        font-size:1.2em;
+    }
+ }
+ 
+}
+
+
+
+
+
+
+//Table//
+table {
+    
+    width: 100%;
+    height:80%;
+  
+  th, td {
+    width:40%;
+    padding:4px;
+    text-align: center;
+    font-size: 13pt;
+  }
+  th:first-child {
+    border: none;
+    
+  }
+  td:nth-child(2n), th:nth-child(2) {
+    border-left: 3px solid $golden;
+    color:black;
+   background-color: rgba(255, 255, 255, 0.664);
+
+  }
+}
+  
+
+
+
+ 
+
+  .skills{
+    @extend %align-center;
+    height:500px;
+    width:100%;
+    justify-content: space-around;
+    background-color: #fff;
+    
+    .progress-container {
+      @extend %align-center;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      width:100%;
+    }
+    .skill{
+
+      position:absolute;
+      width:90%;
+      height:90%;
+      border-radius: 50%;
+      background-color: black;
+      z-index: 10;
+      @extend %align-center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 2.5em;
+      color:#fff;
+    }
+    .progress-bar {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: conic-gradient($golden 64%, #dfdfdf 0); 
+      &:first-child ,&:last-child{
+          background: conic-gradient($golden 100%, #dfdfdf 0); 
+      }
+      &:nth-child(2){
+         
+              background: conic-gradient($golden 80%,  0); 
+          
+      }
+      &:nth-child(4){
+  
+        background: conic-gradient($golden 55%,  0); 
+      }
+      position: relative;
+      @extend %align-center;
+      justify-content: space-around;
+  
+  
+    }
+  }
+ 
+  .headline {
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 13pt;
+    background-color: #000;
+    letter-spacing: 3px;
+  
+    h2::after {
+      width: 200px;
+      content: "";
+      display: block;
+      margin: 0 auto;
+      height: 1px;
+      background-color: $golden;
+    }
+  
+    &:nth-of-type(4) { 
+      background-color: white;
+      color:black
+    }
+  }
+
+  #projects {
+    @extend %align-center;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    flex-direction: row;
+    height:600px;
+    background-color: #000;
+    color:#fff;
+    font-size:13pt;
+
+   
+}
+.project_block{
+
+height:90%;
+width:45%;
+@extend %align-center;
+flex-direction: column;
+justify-content: space-evenly;
+
+text-align: center;
+
+img{height:auto;
+    width:100%;}
+ p{
+  height:50%;
+ }
+a{
+    width:70%;
+    position:relative;
+    z-index: 2;
+    .ikone{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      height:30%;
+      background-color: #00000085;
+      z-index: 10;
+     @extend %align-center;
+      justify-content:center;
+      font-size:22pt;
+      font-weight:bold;
+      color:#fff;
+      letter-spacing: 4px;
+
+    }
+}
+}
+
+#contact{
+	height:750px;
+	@extend %align-center;
+	justify-content: space-evenly;
+	
+  background-color: #000;
+
+}
+#container{
+	
+	height:50%;
+  width:50%;
+	display:flex;
+  flex-direction: column;
+  
+  
+  
+	
+   
+	
+	
+
+}
+input{
+	border:none;
+	height:15%;
+	width:80%;
+	margin:5px 0px 5px 0px;
+	color:#000;
+	padding-left:5px;
+  border:solid 1px #000;
+  box-sizing: border-box;
+	
+}
+label{
+		color:$golden;
+	font-size:14pt;
+}
+#button01{
+	width:30%;
+	color: #000;
+	transition:0.5s;
+	margin-top:40px;
+}
+#button01:hover{
+	transform:scale(1.01);
+  background-color: #000;
+  color:$golden;
+  border:1px solid white;
+	
+}
+#more_contact{
+
+  height:100%;
+  width:50%;
+  color:#fff;
+
+  @extend %align-center;
+ 
+  justify-content: center;
+  &_inside{
+
+    height:50%;
+    width:100%;
+    text-align: right;
+    border-right:1px solid $golden;
+    padding-right: 10px;
+  }
+  .side{letter-spacing: 4px;
+      height:100px;}
+      
+
+        font-size:17pt
+      
+}
+.wrapper{
+
+  width:90%;
+  margin:0 auto;
+  height:auto;
+
+}
+main{display:flex;
+flex-direction: column;}
+        
+       
+    
+footer{
+
+  height:80px;
+  width:100%;
+  background-color: #fff;
+  @extend %align-center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 16pt;
+  i{
+    font-size: 25pt;
+    
+  }
+  
+}
+
+
+@include desktop {
+//HEADER
+header{
+  justify-content:space-between;
+  
+  .info_block{
+    opacity:0;
+    position: absolute;
+  }
+  nav{
+    width:50%;
+
+  }
+  .logo{
+    z-index:1;
+  }
+
+}
+//ABOUTME
+#about_me{
+
+  table th,table td{
+
+    width:23%;
+    height:15%;
+  }
+  .text_blocks {
+    height:70%;
+  }
+}
+.headline h2::after{
+  width:200px;
+  
+}
+.skills{
+
+flex-wrap: wrap;
+height:500px;
+
+
+.skill{
+  height:90%;
+  width:90%;
+  font-size: 17pt;
+}
+.progress-bar{
+
+  height:190px;
+  width:190px;
+
+}
+ 
+    
+    .progress-container{
+      justify-content: space-evenly;
+      width:75%;
+    }
+}
+  #projects{
+
+    margin:0px;
+  }
+}
+@include laptop {
+
+
+  .skills{
+
+  .skill{
+    height:90%;
+    width:90%;
+    font-size: 17pt;
+  }
+  .progress-bar{
+  
+    height:190px;
+    width:190px;
+  
+  }
+   
+      
+      .progress-container{
+        justify-content: space-evenly;
+        width:75%;
+      }
+}
+}
+
+
+
+
+
+
+
+
